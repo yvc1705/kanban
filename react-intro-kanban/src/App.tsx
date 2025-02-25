@@ -1,35 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import TaskCard from "./task-card";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const title = "DO MARKET RESEARCH";
+  const id = "BUS-1";
+  const points = 5;
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <TaskCard title={title} id={id} points={points} />
+      <TaskCard title="competitor analysis" id="Bus-2" points={3} />
+      <TaskCard title="Develop Business Strategy" id="Bus-3" points={8} />
+      <TaskCard title="Develop Marketing Strategy" id="Bus-4" points={5} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
