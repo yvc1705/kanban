@@ -1,26 +1,29 @@
 import "./App.css";
 import TaskCard from "./components/TaskCard";
-import { tasks } from "./utils/data-tasks";
+import { tasks , statuses} from "./utils/data-tasks";
 
 
 function App() {
+  const columns = statuses.map((status) => {
+    const tasksInColumn = tasks.filter((task) => task.status === status);
+    return {
+      title: status,
+      tasks: tasksInColumn
+    };
+  });
+  
 
   return (
-    <>
-    {tasks.map((task)=> <TaskCard task = {task} /> )}
-
-      {/* <TaskCard task={task} />
-      <TaskCard task={task2} />
-      <TaskCard task={task3} />
-      <TaskCard task={task4} /> }
-       <TaskCard title={title} id={id} points={points} />
-      <TaskCard title="competitor analysis" id="Bus-2" points={3} />
-      <TaskCard title="Develop Business Strategy" id="Bus-3" points={8} />
-      <TaskCard title="Develop Marketing Strategy" id="Bus-4" points={5} />
-     */}
-     
-    </>
+    <div className = 'flex divide-x'>
+      {columns.map((column)=>(  
+          <div>
+          <h2 className="text=3xl p-2 capitalize font-bold text-gray-500">{column.title}</h2>
+          {column.tasks.map((task)=> <TaskCard task = {task} /> )}
+          </div>
+      ))}
+    </div>
   );
 }
+
 
 export default App;
