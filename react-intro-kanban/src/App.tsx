@@ -1,22 +1,25 @@
 import "./App.css";
 import TaskCard from "./components/TaskCard";
-import { Task } from "./utils/data-tasks";
+import { tasks } from "./utils/data-tasks";
+
 
 function App() {
-  const task : Task = {
-  title : "DO MARKET RESEARCH",
-  id : "BUS-1",
-  points : 5,
-}
+
   return (
     <>
-    <TaskCard task={task} />
-      {/* <TaskCard title={title} id={id} points={points} />
+    {tasks.map((task)=> <TaskCard task = {task} /> )}
+
+      {/* <TaskCard task={task} />
+      <TaskCard task={task2} />
+      <TaskCard task={task3} />
+      <TaskCard task={task4} /> }
+       <TaskCard title={title} id={id} points={points} />
       <TaskCard title="competitor analysis" id="Bus-2" points={3} />
       <TaskCard title="Develop Business Strategy" id="Bus-3" points={8} />
       <TaskCard title="Develop Marketing Strategy" id="Bus-4" points={5} />
      */}
-      </>
+     
+    </>
   );
 }
 
